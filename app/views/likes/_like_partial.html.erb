@@ -1,0 +1,11 @@
+<div id= "<%= resource.class.to_s.downcase %>-like-<%= resource.id %>" class= "like-partial">
+  <% pre_like = resource_like(resource) %>
+  <% if pre_like %>
+    <%= link_to 'Unlike', like_path(resource, resource_id: resource.id, resource_name: resource.class.to_s.downcase),method: :delete, remote: true %>
+  <%else%>
+    <%= link_to 'Like', likes_path(resource_id: resource.id, resource_name: resource.class.to_s.downcase), method: :post, remote: true %>
+  <%end%>
+  <span id = "<%= resource.class.to_s.downcase %>-likes-count-<%= resource.id%>" data-id = "<%= resource.id %>">
+    (<%= resource.likes.count %><%= (resource.likes.count) == 1 ? 'Like' : 'Likes'%>)
+  </span>
+</div>

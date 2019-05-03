@@ -1,5 +1,7 @@
 {
   "name": "blog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jshint": "^2.10.2"
+  }
 }

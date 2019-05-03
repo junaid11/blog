@@ -1,0 +1,17 @@
+<% unless suggestion.id.blank? %>
+  <p>
+    <strong>User:</strong>
+    <b>
+    <%= suggestion.user.name %></b>
+  </p>
+  <p>
+    <strong>Text where suggestions:</strong>
+    <%= suggestion.reference_text %>
+  </p>
+  <p>
+    <strong>suggestion:</strong>
+    <%= suggestion.body %>
+  </p>
+  <%= link_to 'Destroy Suggestion', post_post_suggestion_path(suggestion.post, suggestion), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <hr>
+<%end%>

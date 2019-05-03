@@ -1,0 +1,12 @@
+<div id="comment-render">
+  <%= form_with(model: [ @post, @post.comments.build ], remote: true) do |form| %>
+    <p>
+      <%= form.text_field :body , class: "form-control" %>
+    </p>
+      <% form.label :Image %>
+      <% form.file_field :avatar %>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>

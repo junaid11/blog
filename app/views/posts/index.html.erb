@@ -1,0 +1,44 @@
+  <header class="masthead" style="background-image: url(<%= asset_path('home-bg.jpg') %>);">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Devsinc Blog</h1>
+            <span class="subheading">Here you can post anything</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h2 class="notice"><%= notice %></h2>
+      <% @posts.each do |post| %>
+        <div class="post-preview">
+          <a href="posts/<%=post.id%>">
+            <h2 class="post-title">
+              <%= post.title %>
+            </h2>
+          </a>
+          <p class="post-meta">Posted by
+            <a><%=post.user.name%></a>
+              on <%= post.created_at%></p>
+        </div>
+        <% post.comments.first ? render(post.comments) : "No Comments" %>
+        <% if can? :update , post %>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <% end %>
+
+        <td>
+          <% if can? :destroy , post%>
+            <%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          <hr>
+        </td>
+      <% end %>
+    </div>
+  </div>
+</div>

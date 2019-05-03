@@ -1,0 +1,4 @@
+$(document).ready(function(){
+  $("#<%= @resource.class.to_s.downcase %>-report-<%= @resource.id %>")
+  .html('<%= escape_javascript render partial: "reports/report_partial", locals: {resource: @resource} %>');
+});

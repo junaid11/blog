@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   # Relations
   belongs_to :user
   belongs_to :post

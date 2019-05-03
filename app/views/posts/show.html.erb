@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>
+          <strong>Title:</strong>
+          <b><%= @post.title %></b>
+        </p>
+        <div class="show-toggle"><%= render 'post_suggestions/form' %></div>
+        <div class= "selection" >
+          <%= raw(@post.body).truncate(@post.body.length) %>
+        </div>
+        <%= render partial: 'likes/like_partial', locals: { resource: @post } %>
+        <%= render partial: 'reports/report_partial', locals: { resource: @post } %>
+        <% if can? :edit, @post %>
+        <%= link_to 'Edit', edit_post_path(@post) %>
+        <% end %>
+        <% if can? :destroy , @post %>
+          <%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <h1> Comments </h1>
+        <div id="comment">
+          <%= render @post.comments %>
+        </div>
+        <%= render 'comments/form'%>
+    </div>
+  </div>
+</div>

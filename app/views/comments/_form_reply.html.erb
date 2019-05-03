@@ -1,0 +1,11 @@
+<div id= "reply-render-<%=comment.id%>" >
+  <%= form_with(model: [comment.replies.new ],url: post_comments_path(post) ,method: :post, remote: true) do |form| %>
+    <%= form.hidden_field :parent_id, value: comment.id %>
+    <p>
+      <%= form.text_field :body , class: "form-control" %>
+    </p>
+    <p>
+      <%= form.submit "Create Reply" %>
+    </p>
+  <% end %>
+</div>

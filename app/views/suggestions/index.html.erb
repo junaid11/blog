@@ -1,0 +1,16 @@
+<div class="container">
+  <% @suggestions.each do |suggestion| %>
+    <a href= "http://localhost:3000/posts/<%= suggestion.post.id%>">Post Title :<%= suggestion.post.title %>
+    </a>
+    <br/>
+    <b>Suggesstion body:</b>
+    <%= suggestion.body %>
+
+    <br/>
+    <b>Suggestion Text Reference:</b>
+    <%= suggestion. reference_text %>
+    <br/>
+    <%= link_to 'Destroy Suggestion', post_post_suggestion_path(suggestion.post, suggestion), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <hr>
+  <% end %>
+</div>

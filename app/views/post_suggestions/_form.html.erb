@@ -1,0 +1,8 @@
+<h1>Suggestion form</h1>
+<%= form_with(model: @post.suggestions.build, url: post_post_suggestions_path(post_id: @post.id), local: true) do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body, class: 'form-control'%>
+  <%= f.label :reference_text %>
+  <%= f.text_field :reference_text ,id: "selected-data", class: 'form-control' %><br />
+  <%= f.submit %>
+<% end %>

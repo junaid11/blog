@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Suggestions on My Posts</h2>
+  <% @posts.each do |post| %>
+    <% if post.suggestions.any? %>
+      <a href="http://localhost:3000/posts/<%= post.id %>">
+        <h2 class="post-title" >
+          <%= post.title %>
+        </h2>
+      </a>
+      <%= render post.suggestions %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+  <% @reports.each do |report| %>
+    <% if report.reportable_type == "Post" %>
+    <p>
+      <% post = find_post(report) %>
+      <h2>Post</h2>
+      <a href="posts/<%= post.id %>">
+        <h4 class="post-title" >
+          <%= post.title %>
+        </h4>
+      </a>
+    </p>
+    <hr>
+    <% end %>
+  <% end %>
+  <br/>
+  <% @reports.each do |report| %>
+    <% if report.reportable_type == "Comment" %>
+    <h2>Comment</h2>
+    <p>
+      <% comment = find_comment(report) %>
+      <p>
+        <strong>User:</strong>
+        <b>
+        <%= comment.user.name %></b>
+      </p>
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+      <%= link_to 'Destroy Comment', [ comment.post, comment ], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+    <hr>
+    <% end %>
+  <% end %>
+  <br/>
+</div>

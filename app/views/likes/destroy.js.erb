@@ -1,0 +1,4 @@
+$(document).ready(function(){
+  $("#<%= @resource.class.to_s.downcase %>-like-<%= @resource.id %>")
+  .html('<%= escape_javascript render partial: "likes/like_partial", locals: { resource: @resource } %>');
+});

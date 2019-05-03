@@ -1,0 +1,8 @@
+<div id= "<%= resource.class.to_s.downcase %>-report-<%= resource.id %>" class="report-partial">
+  <% pre_report = resource_report(resource) %>
+  <% if pre_report %>
+    <%= link_to "Reported", report_path(resource, resource_id: resource.id, resource_name: resource.class.to_s.downcase), method: :delete, remote: true %>
+  <%else%>
+    <%= link_to "Report", reports_path(resource_id: resource.id, resource_name: resource.class.to_s.downcase), method: :post, remote: true %>
+  <%end%>
+</div>

@@ -19,19 +19,33 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+gem 'carrierwave', '~> 1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'wysiwyg-rails'
+
+gem 'font-awesome-sass'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'rubocop-performance'
 
+gem 'pry', '~> 0.12.2'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
+
+gem 'font-awesome-rails'
+
+gem 'cancancan'
+
+gem 'rolify'
+
+gem 'rails_admin', '~> 1.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,6 +56,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
@@ -59,7 +74,17 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'simplecov', require: false
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+
+gem 'sassc-rails', '>= 2.1.0'
+
+gem 'simple_form', '~> 4.1'

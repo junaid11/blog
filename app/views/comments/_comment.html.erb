@@ -1,0 +1,29 @@
+<% if comment.parent_id.nil? %>
+  <div class="comment-<%=comment.id%>">
+    <p id="comment-margin">
+      <b><%= comment.user.name %>-</b>
+      <%= comment.body %>
+      <% comment.avatar_url %>
+      <%= render partial: 'likes/like_partial', locals: { resource: comment } %>
+      <%= render partial: 'reports/report_partial', locals: { resource: comment } %>
+      <% if can? :destroy , comment %>
+        <%= link_to 'Destroy', [comment.post, comment], method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <%= render partial: "comments/form_reply", locals: { comment: comment, post: comment.post } %>
+      <hr>
+    </p>
+  </div>
+<% else %>
+  <div id= "reply-style", class="comment-<%=comment.id%>">
+    <p id="reply-margin">
+      <b><%= comment.user.name %>-</b>
+      <%= comment.body %>
+    </p>
+    <%= render partial: 'likes/like_partial', locals: { resource: comment } %>
+    <%= render partial: 'reports/report_partial', locals: { resource: comment } %>
+    <% if can? :destroy , comment %>
+      <%= link_to 'Destroy', [comment.post, comment], method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <br/>
+  </div>
+<% end %>

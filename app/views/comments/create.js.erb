@@ -1,0 +1,7 @@
+$(document).ready(function(){
+  <%if @comment.parent_id? %>
+    $("#reply-render-<%= @comment.parent_id%>").append('<%= escape_javascript render partial: "comments/comment", locals: { comment: @comment } %>');
+  <% else %>
+    $("#comment-render").prepend('<%= escape_javascript render partial: "comments/comment", locals: { comment: @comment } %>');
+  <% end %>
+});
